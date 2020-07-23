@@ -2,12 +2,16 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-export default class UserDetailScreen extends Component {
-  render() {
+const UserDetailScreen = ({navigation}) =>{
+    const datas = navigation.getParam('data');
+    console.log(datas);
     return (
       <View>
-        <Text>Home Screen</Text>
+        <Text>{datas.name}</Text>
+        <Text>{datas.email}</Text>
+        <Text>{datas.mobile}</Text>
       </View>
     );
-  }
 }
+
+export default UserDetailScreen;

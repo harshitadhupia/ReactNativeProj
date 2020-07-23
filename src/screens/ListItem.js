@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
   });
 
 export default class ListItem extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           isLoading: true,
           items: [],
@@ -31,10 +31,13 @@ export default class ListItem extends Component {
     componentDidMount() {
         itemsRef.on('value', (snapshot) => {
             let data = snapshot.val();
+            console.log("----------------------------data1",data);
             let items = Object.values(data);
+            console.log("----------------------------data2",items);
             this.setState({items,
                 isLoading: false,
             });
+            console.log("----------------------------data3",this.state.item);
          });
     }
 
@@ -50,7 +53,7 @@ export default class ListItem extends Component {
             <View style={styles.container}>
                 {
                     this.state.items.length > 0
-                    ? <ItemComponent items={this.state.items} />
+                    ? <ItemComponent navigate={this.props.navigation.navigate} destination="UserDetailScreen" items={this.state.items} />
                     : <Text>No items</Text>
                 }
             </View>

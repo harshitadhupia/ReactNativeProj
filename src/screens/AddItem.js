@@ -72,6 +72,7 @@ class AddItem extends Component {
               onChangeText={(val) => this.inputValueUpdate(val, 'email')}
           />
            <TextInput
+           keyboardType={'numeric'}
         style={styles.itemInput}
               placeholder={'Mobile'}
               value={this.state.mobile}

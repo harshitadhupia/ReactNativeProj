@@ -11,11 +11,23 @@ console.disableYellowBox = true;
 
 const navigator = createStackNavigator(
   {
-    Home: Home,
+    Home: {
+      screen: Home,
+      navigationOptions: {title: 'Home'},
+    },
     AddItem: AddItem,
-    ListItem: ListItem,
-    UserDetailScreen: UserDetailScreen,
-    ItemComponent: ItemComponent,
+    ListItem: {
+      screen: ListItem,
+      navigationOptions: {title: 'ListItem'},
+    },
+    UserDetailScreen: {
+      screen: UserDetailScreen,
+      navigationOptions: {title: 'UserDetailScreen'},
+    },
+    ItemComponent: {
+      screen: ItemComponent,
+      navigationOptions: {title: 'ItemComponent'},
+    },
   },
   {
     initialRouteName: 'AddItem',

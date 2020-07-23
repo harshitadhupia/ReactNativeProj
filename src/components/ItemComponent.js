@@ -6,21 +6,11 @@ import {ListItem} from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 
 
-class ItemComponent extends Component {
-  constructor(props) {
-      
-    super(props);
-      }
-
-  static propTypes = {
-    items: PropTypes.array.isRequired,
-  };
-
-  render() {
+const ItemComponent = (props) =>{
     return (
         <ScrollView style={styles.container}>
           {
-            this.props.items.map((item, index) => {
+            props.items.map((item, index) => {
               return (
                 <ListItem
                   key={index}
@@ -28,15 +18,12 @@ class ItemComponent extends Component {
                   bottomDivider
                   title={item.name}
                   subtitle={item.email}
-                  onPress={() => {
-                    this.press.navigation.navigate('UserDetailScreen')
-                  }}/>
+                  onPress={() => props.navigate(props.destination,{data:item})}/>
               );
             })
           }
       </ScrollView>
     );
-  }
 }
 
 const styles = StyleSheet.create({
