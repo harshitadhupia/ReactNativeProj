@@ -31,15 +31,16 @@ export default class ListItem extends Component {
     componentDidMount() {
         itemsRef.on('value', (snapshot) => {
             let data = snapshot.val();
-            console.log("----------------------------data1",data);
+            console.log("---------------------data1",data);
             let items = Object.values(data);
-            console.log("----------------------------data2",items);
+            console.log("--------------------data2",items);
             this.setState({items,
                 isLoading: false,
             });
-            console.log("----------------------------data3",this.state.item);
+            console.log("-----------------data3",this.state.item);
          });
     }
+
 
     render() {
         if (this.state.isLoading){
