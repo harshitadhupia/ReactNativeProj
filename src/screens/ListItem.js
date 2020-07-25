@@ -29,8 +29,24 @@ export default class ListItem extends Component {
     } */
 
     componentDidMount() {
-        itemsRef.on('value', (snapshot) => {
-            let data = snapshot.val();
+        itemsRef.on('value', (dataSnapshot) => {
+          var aux = [];
+  dataSnapshot.forEach((child) => {
+    aux.push({
+      name: child.val().name,
+      email: child.val().email,
+      mobile: child.val().mobile,
+      id: child.key
+    });
+    console.log('item is',aux)
+  });
+  this.setState({items:aux,
+    isLoading: false,
+});
+console.log('records are', this.state.items);
+        });
+    }
+          /*   let data = snapshot.val();
             console.log("---------------------data1",data);
             let items = Object.values(data);
             console.log("--------------------data2",items);
@@ -38,8 +54,8 @@ export default class ListItem extends Component {
                 isLoading: false,
             });
             console.log("-----------------data3",this.state.item);
-         });
-    }
+         }); */
+   
 
 
     render() {

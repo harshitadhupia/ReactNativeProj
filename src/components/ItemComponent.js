@@ -7,6 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const ItemComponent = (props) =>{
+console.log("item component data is", props.items);
+
     return (
         <ScrollView style={styles.container}>
           {
@@ -17,7 +19,7 @@ const ItemComponent = (props) =>{
                   chevron
                   bottomDivider
                   title={item.name}
-                  subtitle={item.email}
+                  //subtitle={item.email}
                   onPress={() => props.navigate(props.destination,{data:item})}/>
               );
             })

@@ -5,10 +5,13 @@ import {
   Text,
   StyleSheet,
   TextInput,
+  Alert,
   TouchableHighlight,
 } from 'react-native';
 //import {addItem} from '../services/ItemService';
 import {db} from '../config/db';
+import * as yup from 'yup'
+import { Formik } from 'formik'
 
 class AddItem extends Component {
   constructor(props) {

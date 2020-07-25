@@ -7,30 +7,32 @@ import AddItem from './src/screens/AddItem';
 import ListItem from './src/screens/ListItem';
 import UserDetailScreen from './src/screens/UserDetailScreen';
 import ItemComponent from './src/components/ItemComponent';
+import Location from './src/screens/Location';
 console.disableYellowBox = true;
 
 const navigator = createStackNavigator(
   {
     Home: {
       screen: Home,
-      navigationOptions: {title: 'Home'},
+      navigationOptions: {title: 'Add User'},
     },
     AddItem: AddItem,
     ListItem: {
       screen: ListItem,
-      navigationOptions: {title: 'ListItem'},
+      navigationOptions: {title: 'View Users'},
     },
     UserDetailScreen: {
       screen: UserDetailScreen,
-      navigationOptions: {title: 'UserDetailScreen'},
+      navigationOptions: {title: 'User Detail'},
     },
     ItemComponent: {
       screen: ItemComponent,
       navigationOptions: {title: 'ItemComponent'},
     },
+    Location: Location,
   },
   {
-    initialRouteName: 'AddItem',
+    initialRouteName: 'Location',
   },
 );
 
